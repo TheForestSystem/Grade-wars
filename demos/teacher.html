@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Teacher Veiw</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+      /* Chrome, Safari, Edge, Opera */
+      input::-webkit-outer-spin-button,
+      input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+
+      /* Firefox */
+      input[type=number] {
+        -moz-appearance: textfield;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- left side of the screen -->
+    <div class="container">
+      <div style="margin-top: 20px;">
+      <div class="row">
+        <div class="col-md-9">
+          <div class="card">
+            <div class="card-header">
+              <h4 id='header'>Your class points</h4>
+            </div>
+            <div class="card-body">
+              <form action="#">
+                <div class="form-group">
+                  <label for="grade">Grade</label>
+                  <select class="form-control" id="grade">
+                    <option>Select Grade</option>
+                    <option>9</option>
+                    <option>10</option>
+                    <option>11</option>
+                    <option>12</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="Points">Points</label>
+                  <input type="number" class="form-control" id="Points" placeholder="Enter points" readonly>
+                </div>
+                <button type="button" onclick="changeGradePoints()" class="btn btn-primary">Submit</button>
+              </form>
+            </div>
+          </div>
+        </div>
+        <!-- right side of the screen -->
+        <div class="col-md-3">
+          <div class="list-group">
+            <div class="card">
+              <div class="card-header">
+                <h4>Your Grade Points</h4>
+              </div>
+              <div class="card-body">
+                <form>
+                  <div class="form-group">
+                    <label for="grade_9">Grade 9</label>
+                    <input type="text" class="form-control" id="grade_9" name="grade_9" value="40" readonly>
+                  </div>
+                  <div class="form-group">
+                    <label for="grade_10">Grade 10</label>
+                    <input type="text" class="form-control" id="grade_10" name="grade_10" value="0" readonly>
+                  </div>
+                  <div class="form-group">
+                    <label for="grade_11">Grade 11</label>
+                    <input type="text" class="form-control" id="grade_11" name="grade_11" value="30" readonly>
+                  </div>
+                  <div class="form-group">
+                    <label for="grade_12">Grade 12</label>
+                    <input type="text" class="form-control" id="grade_12" name="grade_12" value="9" readonly>
+                  </div>
+                </form>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+
+  <script>
+    var grade = document.getElementById('grade');
+    var Points = document.getElementById('Points');
+    var header = document.getElementById('header');
+    grade.addEventListener('change', function() {
+      if (grade.value == 9) {
+        Points.value = grade_9.value;
+        Points.readOnly = false;
+      } else if (grade.value == 10) {
+        Points.value = grade_10.value;
+        Points.readOnly = false;
+      } else if (grade.value == 11) {
+        Points.value = grade_11.value;
+        Points.readOnly = false;
+      } else if (grade.value == 12) {
+        Points.value = grade_12.value;
+        Points.readOnly = false;
+      } else {
+        Points.value = 0;
+        Points.readOnly = true;
+      }
+    });
+
+    // if pramiter "teacher" is not emty, then it will show the teacher name in header
+    if (window.location.search.split('?')[1] != undefined) {
+      var teacher = window.location.search.split('?')[1].split('=')[1];
+      header.innerHTML = teacher + '\'s Class Points';
+    }
+
+    // when form is submitted, it will change grade points
+    function changeGradePoints() {
+      // get the grade points 
+      var points = document.getElementById('Points').value;
+
+      //change the grade points
+      if (grade.value == 9) {
+        document.getElementById('grade_9').value = points;
+      } else if (grade.value == 10) {
+        document.getElementById('grade_10').value = points;
+      } else if (grade.value == 11) {
+        document.getElementById('grade_11').value = points;
+      } else if (grade.value == 12) {
+        document.getElementById('grade_12').value = points;
+      }
+    }
+  </script>
+</html>
