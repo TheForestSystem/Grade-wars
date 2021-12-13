@@ -9,6 +9,10 @@
   border-bottom: none;
   padding-top: 2px;
 }
+
+body {
+  background-color: #0b2d39;
+}
 .tabs-left {
   border-right: 1px solid #ddd;
 }

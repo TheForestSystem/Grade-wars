@@ -58,3 +58,12 @@ input:checked + .slider:before {
 .slider.round:before {
   border-radius: 50%;
 }
+#toggles {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#toggles > * {
+  margin: 0 5px;
+}

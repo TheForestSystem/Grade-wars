@@ -7,16 +7,9 @@
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 4.3.1 -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/bootstrap.css">
     <!-- Toggles -->
     <link rel="stylesheet" href="../css/toggles.css">
-
-    <style>
-      .move {
-        top: 50%;
-        transform: translateY(-50%);
-      }
-    </style>
   </head>
   <body>
     <!-- left side of the screen -->
@@ -34,12 +27,19 @@
             <li class="nav-item">
               <a class="nav-link" data-toggle="tab" href="#approve" aria-selected="false">Approval</a>
             </li>
+            <li class="nav-item">
+              <strong>
+                <a class="nav-link text-danger" data-toggle="tab" href="#danger" aria-selected="false">Danger</a>
+              </strong>
+            </li>
           </ul>
           <div class="tab-content" id="myTabContent"> <!--ids need to match hrefs above-->
             <div class="tab-pane fade show active" id="event" role="tabpanel fade">
-              <div id="toggles" >
-                <div style="margin-top: 10px;"></div>
-                <label class="switch" style="position: relative;">
+              <center><h3>Prefabs</h3><hr style="max-width: 25%;" /></center>
+              
+              <br>
+              <center><div id="toggles">
+                <label class="switch">
                   <input type="checkbox" id="hamper">
                   <span class="slider round"></span>
                 </label>
@@ -47,23 +47,108 @@
                 <label for='hamper' class="move">
                   <span id="hamperSpan" class="text-muted">Hamper</span>
                 </label>
-
-                <br>
-                <label class="switch" style="position: relative;">
+                <label class="switch">
                   <input type="checkbox" checked id="student">
                   <span class="slider round"></span>
                 </label>
 
                 <label for='student' class="move">
-                  <span class="move text-primary" id="studentSpan">Student Count</span>
+                  <span class="text-primary" id="studentSpan">Student Count</span>
                 </label>
+                <input type='button' id='startBtn' value='Start' class='btn btn-danger' onclick="startEvent()" />
               </div>
+              <h3>Preview</h3></center><hr style="max-width: 75%;">
+
+              <div id="StudentCountCard" style="display: inline;">
+                <div class="card">
+                  <div class="card-header">
+                    <h4 id='header'>Your class points</h4>
+                  </div>
+                  <div class="card-body">
+                    <form action="#">
+                      <div class="form-group">
+                        <label for="grade">Grade</label>
+                        <select class="form-control" id="grade">
+                          <option>Select Grade</option>
+                          <option>9</option>
+                          <option>10</option>
+                          <option>11</option>
+                          <option>12</option>
+                        </select>
+                      </div>
+                      <div class="form-group">
+                        <label for="Points">Points</label>
+                        <input type="number" class="form-control" id="Points" placeholder="Enter points">
+                      </div>
+                      <button type="button" class="btn btn-primary">Submit</button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              <div id="HamperCard" style="display: none;">
+                <h4>Hamper card placeholder</h4>
+              </div>
+              <div id="EmptyCard" style="display: none;">
+                <div class='card'>
+                  <div class='card-header'>
+                    <h4>No Event Active</h4>
+                  </div>
+                  <div class='card-body'>
+                    <p>No event is currently active. Please check back later.</p>
+                  </div> 
+                </div>
+              </div>
+              
             </div>
             <div class="tab-pane fade" id="manual" role="tabpanel fade">
               test 2
             </div>
             <div class="tab-pane fade" id="approve" role="tabpanel fade">
-              test 3
+              <div style="margin-top: 5px;"></div>
+              <h3 class="text-center">Approval</h3><hr style="max-width: 75%;">
+              <div class="card" style="background-color: transparent;">
+                <div class='card-body'>
+                  <table class="table table-striped">
+                    <thead>
+                      <tr>
+                        <th scope="col">Teacher</th>
+                        <th scope="col">9's</th>
+                        <th scope="col">10's</th>
+                        <th scope="col">11's</th>
+                        <th scope="col">12's</th>
+                        <th scope="col">Actions</th>
+                      </tr>
+                      <tr id='table1'>
+                        <td>Mr.Spenser</td>
+                        <td>5</td>
+                        <td>30</td>
+                        <td>21</td>
+                        <td>0</td>
+                        <td>
+                          <button type="button" class="btn btn-primary" onclick="aprovePoints('table1')">Approve</button>
+                          <button type="button" class="btn btn-danger" onclick="denyPoints('table1')">Deny</button>
+                        </td>
+                      </tr>
+                      <tr id='table2'>
+                        <td>Ms.Place</td>
+                        <td>7</td>
+                        <td>21</td>
+                        <td>11</td>
+                        <td>5</td>
+                        <td>
+                          <button type="button" class="btn btn-primary" onclick="aprovePoints('table2')">Approve</button>
+                          <button type="button" class="btn btn-danger" onclick="denyPoints('table2')">Deny</button>
+                        </td>
+                      </tr>
+                    </thead>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <div class="tab-pane fade" id="danger" role="tabpanel fade">
+              <div style="margin-top: 5px;"></div>
+              <h3 style="font-weight: 700;" class="text-center text-danger">Danger</h3><hr style="max-width: 75%;">
+
             </div>
           </div>
         </div> <!-- boddy end-->
@@ -78,8 +163,8 @@
               <div class="card-body">
                 <form>
                   <div class="form-group">
-                    <center><label style="font-size: 20px;" for="event">Active Event</label></center>
-                    <input type="text" class="form-control" id="event" value="Student Count" disabled>
+                    <center><label style="font-size: 20px;" for="activeEvent">Active Event</label></center>
+                    <input type="text" class="form-control" id="activeEvent" value="Student Count" disabled>
                   </div>
                   <hr>
                   <div class="form-group">
@@ -109,21 +194,77 @@
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   <script>
+
+    function aprovePoints(id){
+      var table = document.getElementById(id);
+      var grade_9 = table.getElementsByTagName("td")[1].innerHTML;
+      var grade_10 = table.getElementsByTagName("td")[2].innerHTML;
+      var grade_11 = table.getElementsByTagName("td")[3].innerHTML;
+      var grade_12 = table.getElementsByTagName("td")[4].innerHTML;
+      var grade_9_input = document.getElementById("grade_9");
+      var grade_10_input = document.getElementById("grade_10");
+      var grade_11_input = document.getElementById("grade_11");
+      var grade_12_input = document.getElementById("grade_12");
+      grade_9_input.value = parseInt(grade_9_input.value) + parseInt(grade_9);
+      grade_10_input.value = parseInt(grade_10_input.value) + parseInt(grade_10);
+      grade_11_input.value = parseInt(grade_11_input.value) + parseInt(grade_11);
+      grade_12_input.value = parseInt(grade_12_input.value) + parseInt(grade_12);
+
+      const removeTable = () => {
+        const newOpacity = table.style.opacity ? table.style.opacity - 0.1 : 0.9;
+        table.style.opacity = newOpacity;
+        if (table.style.opacity <= 0.1) {
+          table.style.display = "none";
+          return;
+        }
+        setTimeout(removeTable, 50);
+      };
+      removeTable();
+    }
+
+    function denyPoints(id){
+      var table = document.getElementById(id);
+      const removeTable = () => {
+        const newOpacity = table.style.opacity ? table.style.opacity - 0.1 : 0.9;
+        table.style.opacity = newOpacity;
+        if (table.style.opacity <= 0.1) {
+          table.style.display = "none";
+          return;
+        }
+        setTimeout(removeTable, 50);
+      };
+      removeTable();
+    }
+
     // var for toggles and spans
     var hamper = document.getElementById('hamper');
     var hamperSpan = document.getElementById('hamperSpan');
     var student = document.getElementById('student');
     var studentSpan = document.getElementById('studentSpan');
     var toggles = document.getElementById('toggles');
+    var studentCountCard = document.getElementById('StudentCountCard');
+    var hamperCard = document.getElementById('HamperCard');
+    var emptyCard = document.getElementById('EmptyCard');
+
+    // active event text
+    var event = document.getElementById("activeEvent");
+
+    
 
     hamper.addEventListener('change', function() {
       if (hamper.checked) {
         hamperSpan.classList.remove('text-muted');
         hamperSpan.classList.add('text-primary');
+        hamperCard.style.display = 'inline';
 
         studentSpan.classList.remove('text-primary');
         studentSpan.classList.add('text-muted');
         student.checked = false;
+        studentCountCard.style.display = 'none';
+
+        emptyCard.style.display = 'none';
+
+        //event.value = "Food Hamper's";
       }
     });
 
@@ -131,10 +272,16 @@
       if (student.checked) {
         studentSpan.classList.remove('text-muted');
         studentSpan.classList.add('text-primary');
+        studentCountCard.style.display = 'inline';
 
         hamperSpan.classList.remove('text-primary');
         hamperSpan.classList.add('text-muted');
         hamper.checked = false;
+        hamperCard.style.display = 'none';
+
+        emptyCard.style.display = 'none';
+
+        //event.value = "Student Counted";
       }
     });
 
@@ -142,10 +289,27 @@
       if (!hamper.checked && !student.checked) {
         hamperSpan.classList.remove('text-primary');
         hamperSpan.classList.add('text-muted');
+        hamperCard.style.display = 'none';
 
         studentSpan.classList.remove('text-primary');
         studentSpan.classList.add('text-muted');
+        studentCountCard.style.display = 'none';
+
+        //event.value = "No Event Selected";
+        emptyCard.style.display = 'inline';
       }
     });
+
+    function startEvent() {
+      alert('This is where the selected event would show on teacher accounts and set as active \nNote the event text will change to reflect the selected event');
+
+      if (hamper.checked) {
+        event.value = "Food Hamper's";
+      } else if (student.checked) {
+        event.value = "Student Counted";
+      } else {
+        event.value = "No Event Selected";
+      }
+    }
   </script>
 </html>
