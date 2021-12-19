@@ -1,11 +1,11 @@
 # Grade-wars
-<a href='206.45.49.15/grades'>This</a> is a program that is used for control of the grade wars system.
+<a href='206.45.49.15/grades'>This</a> is a program that is used for controlling the grade wars system.
 
 # Navagation
 ### Main Menu
 ![Main Menu](https://github.com/Foxxything/Grade-wars/blob/main/screenshots/mainMenu.png)
 
-When clicking on the buttons you will be navagated to te selected page
+When you click on a button, you'll get redirected to the selected page.
 
 [Teacher](http://206.45.49.15/grades/demos/teacher.html),
 [Admin](http://206.45.49.15/grades/demos/admin.html),
@@ -21,14 +21,14 @@ When clicking on the buttons you will be navagated to te selected page
 ### Point Menu
 ![point menu for the teacher view](https://github.com/Foxxything/Grade-wars/blob/main/screenshots/teacher/totalPointsForTeacher.png)
 
-This is the menu that shows all points that the teacher has submited.
+This menu shows all of the points that the teacher has submitted.
 
 
 ### Student Count Submit Panel
 ![Student Count Panel](https://github.com/Foxxything/Grade-wars/blob/main/screenshots/teacher/pointEnter.png)
 
-This is where a teacher would count all student that for example, partisapate in spirit week. Enter the amoutn for each grade.when submited the admin can `approve` or `deny`. that can be seen here
-[approvel panel](https://github.com/Foxxything/Grade-wars/new/main?readme=1#approvel-panel)
+
+This menu is where a teacher would enter the number of students in each grade that, for example, participated in a spirit week. Once submitted, the admin can either `approve` or `deny`. You can see that <b>[here](https://github.com/Foxxything/Grade-wars/new/main?readme=1#approvel-panel)</b>.
 
 <hr>
 
@@ -36,15 +36,14 @@ This is where a teacher would count all student that for example, partisapate in
 ## Event Picker
 ![Event Picker](https://github.com/Foxxything/Grade-wars/blob/main/screenshots/admin/eventChanger.png)
 
-This is where you first pick what event your having. wether that be the `Food Hamper's`, a `Sudent Count` event or `No Event`. When the admin toggles the switchs 
-it will change the prveiw, when you select what you want. The user will then press `Start` witch would then start this event globaly (all teacher accounts will see this).
+Here is where you can first pick what event you're going to have, whether it is the `Food Hampers`, a `Student Count` event, or `No Event`. When the admin toggles the switches, it will change the preview once you select what you want. The user will then press `Start`, which starts this event globally (all teacher accounts will see this).
 
 ## Manual Point Change
 ![Manual Point Changer](https://github.com/Foxxything/Grade-wars/blob/main/screenshots/admin/manualPointChange.png)
 
-In this panel the admin can manual change all point values for any grade.
+In this panel, the admin can manually change the point values for any grade.
 
-## Approvel Panel
-![Approvel panel](https://github.com/Foxxything/Grade-wars/blob/main/screenshots/admin/approveManu.png)
+## Approval Panel
+![Approval panel](https://github.com/Foxxything/Grade-wars/blob/main/screenshots/admin/approveManu.png)
 
-Here the user can Approve or Deny the teachers points. When approved it will be added to the total counted points. 
+Here the user can approve or deny the teachers' points. When approved, they get added to the total counted points. 
