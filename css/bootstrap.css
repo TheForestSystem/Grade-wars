@@ -1554,8 +1554,8 @@ pre code{
     font-size:1rem;
     font-weight:400;
     line-height:1.5;
-    color:#495057;
-    background-color:#fff;
+    color:#fff;
+    background-color:#343a40;
     background-clip:padding-box;
     border:1px solid #ced4da;
     border-radius:.25rem;
@@ -1571,8 +1571,8 @@ pre code{
     border:0
 }
 .form-control:focus{
-    color:#495057;
-    background-color:#fff;
+    color:#fff;
+    background-color:#343a40;
     border-color:#80bdff;
     outline:0;
     box-shadow:0 0 0 .2rem rgba(0,123,255,.25)
@@ -1598,12 +1598,12 @@ pre code{
     opacity:1
 }
 .form-control:disabled,.form-control[readonly]{
-    background-color:#e9ecef;
+    /* background-color:#e9ecef; */
     opacity:1
 }
 select.form-control:focus::-ms-value{
     color:#495057;
-    background-color:#fff
+    background-color:transparent
 }
 .form-control-file,.form-control-range{
     display:block;
@@ -3700,7 +3700,8 @@ input[type=button].btn-block,input[type=reset].btn-block,input[type=submit].btn-
 .card-body{
     -ms-flex:1 1 auto;
     flex:1 1 auto;
-    padding:1.25rem
+    padding:1.25rem;
+    background-color:rgb(29, 106, 134);
 }
 .card-title{
     margin-bottom:.75rem
