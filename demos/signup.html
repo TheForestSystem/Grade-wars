@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+  <head>
+    <style>
+      button {
+        margin-right: 25%;
+        float : right;
+      }
+      #code {position: absolute; right: 10px; bottom: 10px; z-index: 1; color:#6c757d;}
+    </style>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Sign Up</title>
+    <meta name="description" content="a sign up form demo">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../css/bootstrap.css">
+  </head>
+  <body>
+    <div class='container'>
+      <div style="margin-top: 10px;"></div>
+      <center>
+        <div class='card' style="width: max-content;" id='card'>
+          <div class='card-header'>
+            <h1>Sign Up</h1>
+          </div>
+          <div id='firstPage' class='card-body'>
+            <div class='row'>
+              <!-- Join Code input -->
+              <div class="col-sm-6 col-12 d-flex align-items-center">
+                <label for="joinCode" class="m-0">Join Code</label>
+              </div>
+              <div class="col-sm-6 col-12">
+                <input type="text" id="joinCode" placeholder="Enter Join Code" class="form-control"/>
+                <div style="margin-top: 5px;"></div>
+              </div>
+              <!-- Continue button -->
+              <button id='continue' class='btn btn-primary'>Continue</button>
+            </div>
+          </div>
+          <div class='card-body' style="display: none;" id='nextPage'>
+            <label for="name" class="m-0">Name</label>
+            <input type="text" id="name" placeholder="Enter Name" class="form-control"/>
+            <div style="margin-top: 10px;"></div>
+
+            <label for="password" class="m-0">Password</label>
+            <input type="password" id="password" placeholder="Enter Password" class="form-control"/>
+            <div style="margin-top: 10px;"></div>
+
+            <label for="confirmPassword" class="m-0">Confirm Password</label>
+            <input type="password" id="confirmPassword" placeholder="Confirm Password" class="form-control"/>
+            <div style="margin-top: 10px;"></div>
+
+            <input type='button' id='submit' class='btn btn-primary' value='Submit'/>
+          </div>
+
+        </div>
+      </center>
+      <span id='code'>Use code: <span id='codeContent'>123456</span></span>
+    </div>
+  </body>
+  <script src='../js/codeGen.js'></script>
+  <script>
+    // on page load
+    window.onload = function() {
+      var codeContent = document.getElementById('codeContent');
+      var code = dumyCode('f.pinkerton@sjasd.ca', 'admin');
+
+      codeContent.innerHTML = code;
+    }
+
+    // on continue button click
+    document.getElementById('continue').onclick = function() {
+      var joinCode = document.getElementById('joinCode').value;
+      var codeContent = document.getElementById('codeContent');
+      var codeSpan = document.getElementById('code');
+
+      if (joinCode == codeContent.innerHTML || joinCode == 'Foxxy') {
+        document.getElementById('firstPage').style.display = 'none';
+        document.getElementById('nextPage').style.display = 'block';
+        document.getElementById('card').style.width = '60%';
+        codeSpan.style.display = 'none';
+
+      } else {
+        alert('Invalid Join Code');
+      }
+    }
+
+    // on submit button click
+    document.getElementById('submit').onclick = function() {
+      var name = document.getElementById('name').value;
+      var password = document.getElementById('password').value;
+      var confirmPassword = document.getElementById('confirmPassword').value;
+
+      if (name == '' || password == '' || confirmPassword == '') {
+        alert('Please fill in all fields');
+      } else if (password != confirmPassword) {
+        alert('Passwords do not match');
+      } else {
+        alert('Successfully registered \nThis is where you would redirect to the login page. when logged in you would be redirected to the page associted to your account type.');
+        // redirect to home page
+        window.location.replace("../index.html");   
+      }
+    }
+  </script>
+</html>

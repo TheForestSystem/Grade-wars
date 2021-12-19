@@ -233,7 +233,29 @@
               
             </div>
             <div class="tab-pane fade" id="manual" role="tabpanel fade">
-              test 2
+              <div style="margin: 10px;"></div>
+              <div class="card">
+                <div class="card-header">
+                  <h4>Manual Point Change</h4>
+                </div>
+                <div class="card-body">
+                  <div class="form-group">
+                    <label for="maualPointGrade">Grade</label>
+                    <select class="form-control" id="maualPointGrade">
+                      <option>Select Grade</option>
+                      <option>9</option>
+                      <option>10</option>
+                      <option>11</option>
+                      <option>12</option>
+                    </select>
+                    <div style="margin-top: 5px;"></div>
+                    <label for="maualPointnumber">Number</label>
+                    <input id="maualPointnumber" placeholder="Enter Number" class="form-control" readonly/>
+                    <div style="margin-top: 5px;"></div>
+                    <button id="maualPointSubmit" class="btn btn-primary">Submit</button>
+                  </div>
+                </div>
+              </div>
             </div>
             <div class="tab-pane fade" id="approve" role="tabpanel fade">
               <div style="margin-top: 5px;"></div>
@@ -319,8 +341,8 @@
               <div class='card'>
                 <div class='card-body'>
                   <div id='resetBtn'>
-                    <button type="button" class="btn btn-danger" onclick="resetAllPoints()">Reset Points</button>
-                    <label for='resetBtn' class="move">
+                    <button type="button" id='resetTotelPoints' class="btn btn-danger">Reset Points</button>
+                    <label for='resetTotelPoints' class="move">
                       <span style="font-weight: 600; ">Will set all counted points to 0 for all grades</span>
                     </label>
                   </div>
@@ -330,7 +352,7 @@
               <div class='card'>
                 <div class='card-body'>
                   <div id='joinBtn'>
-                    <input type="submit" class="btn btn-danger" onclick="sendCodes()">Make Join Code</input>
+                    <input type="submit" class="btn btn-danger" onclick="fetchInfo()">Make Join Code</input>
                     <label for='resetBtn' class="move">
                       <span style="font-weight: 600; "> Will create a join code for a new user to join the system</span>
                     </label>
@@ -390,7 +412,87 @@
 
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <script src='../js/codeGen.js'></script>
   <script>
+    // reset points
+    var resetBtn = document.getElementById('resetTotelPoints');
+
+    resetBtn.addEventListener('click', function() {
+      var reset = confirm('Are you sure you want to reset all counted points?');
+      if (reset) {
+        var grade_9 = document.getElementById('grade_9');
+        var grade_10 = document.getElementById('grade_10');
+        var grade_11 = document.getElementById('grade_11');
+        var grade_12 = document.getElementById('grade_12');
+
+        grade_9.value = 0;
+        grade_10.value = 0;
+        grade_11.value = 0;
+        grade_12.value = 0;
+
+      }
+    });
+
+    function fetchInfo(){
+      // fetch info on account type and email
+      var accountType = document.getElementById('accountType').value;
+      var email = document.getElementById('email').value;
+      
+      sendCodes(accountType, email);
+    }
+
+    // maual points edit
+    var manualPointGrade = document.getElementById('maualPointGrade');
+    var manualPointNumber = document.getElementById('maualPointnumber');
+
+    // button
+    var maualPointSubmit = document.getElementById('maualPointSubmit');
+
+    manualPointGrade.addEventListener('change', function(){
+      var grade = manualPointGrade;
+      var Points = manualPointNumber;
+      var grade_9 = document.getElementById('grade_9');
+      var grade_10 = document.getElementById('grade_10');
+      var grade_11 = document.getElementById('grade_11');
+      var grade_12 = document.getElementById('grade_12');
+
+      if (grade.value == 9) {
+        Points.value = grade_9.value;
+        Points.readOnly = false;
+      } else if (grade.value == 10) {
+        Points.value = grade_10.value;
+        Points.readOnly = false;
+      } else if (grade.value == 11) {
+        Points.value = grade_11.value;
+        Points.readOnly = false;
+      } else if (grade.value == 12) {
+        Points.value = grade_12.value;
+        Points.readOnly = false;
+      } else {
+        Points.value = 0;
+        Points.readOnly = true;
+      }
+    });
+
+    maualPointSubmit.addEventListener('click', function(){
+      var grade = manualPointGrade;
+      var Points = manualPointNumber;
+      var grade_9 = document.getElementById('grade_9');
+      var grade_10 = document.getElementById('grade_10');
+      var grade_11 = document.getElementById('grade_11');
+      var grade_12 = document.getElementById('grade_12');
+
+      if (grade.value == 9) {
+        grade_9.value = Points.value;
+      } else if (grade.value == 10) {
+        grade_10.value = Points.value;
+      } else if (grade.value == 11) {
+        grade_11.value = Points.value;
+      } else if (grade.value == 12) {
+        grade_12.value = Points.value;
+      }
+    });
+
     //make md5 function
     function md5(length) {
       var result           = '';
@@ -402,31 +504,7 @@
       return result;
     }
 
-    // makes the join code
-    function makeCode(email, accountType) {
-      var code = Math.floor(Math.random() * 1000000);
-      var hash = md5(email+accountType+code);
-      return hash.substring(0,6);
-    }
-
-    function sendCodes() {
-      var accountType = document.getElementById('accountType').value;
-      var email = document.getElementById('email').value;
-      var emails = [];
-
-
-      if (email.indexOf(',') > -1) {
-        emails = email.split(',');
-      } else {
-        emails.push(email);
-      }
-      var firsrEmail = emails[0];
-      var code = makeCode(firsrEmail, accountType);
-      var emailAndCode = firsrEmail+'|'+code;
-      var message = 'this would then email to the provided emails with the join code ex: ' + emailAndCode;
-      alert(message);
-
-    }
+   
 
     function aprovePoints(id){
       var table = document.getElementById(id);
