@@ -28,7 +28,7 @@ This menu shows all of the points that the teacher has submitted.
 ![Student Count Panel](https://github.com/Foxxything/Grade-wars/blob/main/screenshots/teacher/pointEnter.png)
 
 
-This menu is where a teacher would enter the number of students in each grade that, for example, participated in a spirit week. Once submitted, the admin can either `approve` or `deny`. You can see that <b>[here](https://github.com/Foxxything/Grade-wars/new/main?readme=1#approvel-panel)</b>.
+This menu is where a teacher would enter the number of students in each grade that, for example, participated in a spirit week. Once submitted, the admin can either `approve` or `deny`. You can see that <b>[here](https://github.com/Foxxything/Grade-wars#approval-panel)</b>.
 
 <hr>
 
