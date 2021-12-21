@@ -51,15 +51,15 @@ Here the user can approve or deny the teachers' points. When approved, they get 
 ## Danger Panel
 ![Danger Panel](https://github.com/Foxxything/Grade-wars/blob/main/screenshots/admin/dangerManu.png)
 
-This is the tab for items that you can be careful around. 
+This is the tab of items that you need to be careful around. 
 
-`Reset Points` - will reset all counted points to 0 and remove all pending point reqests.
+`Reset Points` - resets all counted points back to 0 and removes all pending point reqests.
 
-`Create Join Code` - Here a admin would enter a list or just one email. if a list it would have to look like 
+`Create Join Code` - Here an admin would enter a list or just one email. if a list it would have to look like 
 
 > 1@sjasd.ca,2@sjasd.ca,3@sjasd.ca
 
-witch would send a code for each email sumited. 
+which would send a code for each email sumited. 
 
 <hr>
 
@@ -67,13 +67,13 @@ witch would send a code for each email sumited.
 ### Enter Join Code
 ![JoinCodeEnterMenu](https://github.com/Foxxything/Grade-wars/blob/main/screenshots/signup/joinCodeEnter.png)
 
-Here the new user will enter there given join code. on a secsfull code try it will then bring you to [Sign up page](https://github.com/Foxxything/Grade-wars#sign-up).
-All of the codes will genarated by [adminDangerPanel](https://github.com/Foxxything/Grade-wars#danger-panel).
+Here, the new user will enter their given join code. on a successful code try it will then bring you to the [Sign up page](https://github.com/Foxxything/Grade-wars#sign-up).
+All of the codes will genarated by the [adminDangerPanel](https://github.com/Foxxything/Grade-wars#danger-panel).
 
 ### Sign Up
 ![sign up](https://github.com/Foxxything/Grade-wars/blob/main/screenshots/signup/signUpMenu.png)
 
-This is where the user would then enter `Full name`,`Password` and `Confirm Password`. When all feilds are right it makes a account bassed off the `Acount type` from what code was used and same goes for getting that users `Email`. Then when it has all data it will create the user with 
+This is where the user would then enter `Full name`,`Password` and `Confirm Password`. When all fields are filled, it makes a account based off of the `Acount type` from what code was used, and the same goes for getting that users `Email`. Then when it has all data it will create the user with 
 
 ```
 Full name
