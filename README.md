@@ -46,4 +46,39 @@ In this panel, the admin can manually change the point values for any grade.
 ## Approval Panel
 ![Approval panel](https://github.com/Foxxything/Grade-wars/blob/main/screenshots/admin/approveManu.png)
 
-Here the user can approve or deny the teachers' points. When approved, they get added to the total counted points. 
+Here the user can approve or deny the teachers' points. When approved, they get added to the total counted points.
+
+## Danger Panel
+![Danger Panel](https://github.com/Foxxything/Grade-wars/blob/main/screenshots/admin/dangerManu.png)
+
+This is the tab for items that you can be careful around. 
+
+`Reset Points` - will reset all counted points to 0 and remove all pending point reqests.
+
+`Create Join Code` - Here a admin would enter a list or just one email. if a list it would have to look like 
+
+> 1@sjasd.ca,2@sjasd.ca,3@sjasd.ca
+
+witch would send a code for each email sumited. 
+
+<hr>
+
+## Sign Up
+### Enter Join Code
+![JoinCodeEnterMenu](https://github.com/Foxxything/Grade-wars/blob/main/screenshots/signup/joinCodeEnter.png)
+
+Here the new user will enter there given join code. on a secsfull code try it will then bring you to [Sign up page](https://github.com/Foxxything/Grade-wars#sign-up).
+All of the codes will genarated by [adminDangerPanel](https://github.com/Foxxything/Grade-wars#danger-panel).
+
+### Sign Up
+![sign up](https://github.com/Foxxything/Grade-wars/blob/main/screenshots/signup/signUpMenu.png)
+
+This is where the user would then enter `Full name`,`Password` and `Confirm Password`. When all feilds are right it makes a account bassed off the `Acount type` from what code was used and same goes for getting that users `Email`. Then when it has all data it will create the user with 
+
+```
+Full name
+Passsword
+Title (wrong word but if corected i will update)
+Email
+Account type
+```
