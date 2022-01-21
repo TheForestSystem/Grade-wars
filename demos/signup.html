@@ -1,8 +1,4 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
 <html>
   <head>
     <style>
@@ -12,12 +8,25 @@
       }
       #code {position: absolute; right: 10px; bottom: 10px; z-index: 1; color:#6c757d;}
     </style>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Sign Up</title>
-    <meta name="description" content="a sign up form demo">
+    <meta name="keywords" content="CSHC,cshc,grade wars, sjasd">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="language" content="English">
+    <meta name="author" content="Foxx Pinkerton">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../css/bootstrap.css">
+
+    <!-- Primary Meta Tags -->
+    <title>CSHC Grade Wars Join Page</title>
+    <meta name="title" content="CSHC Grade Wars Join Page">
+    <meta name="description" content="a page for teachers or admins to join the grade wars system">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://206.45.49.15/grades/demos/signup.html">
+    <meta property="og:title" content="CSHC Grade Wars Join Page">
+    <meta property="og:description" content="a page for teachers or admins to join the grade wars system">
+    <meta property="og:image" content="">
+
   </head>
   <body>
     <div class='container'>
@@ -42,14 +51,35 @@
             </div>
           </div>
           <div class='card-body' style="display: none;" id='nextPage'>
-            <label for="name" class="m-0">Name</label>
-            <input type="text" id="name" placeholder="Enter Name" class="form-control"/>
+            <!-- First name -->
+            <label for="firstName" class="m-0">First Name</label>
+            <input type="text" id="firstName" placeholder="Enter First Name" class="form-control"/>
             <div style="margin-top: 10px;"></div>
 
+            <!-- Last name -->
+            <label for="lastName" class="m-0">Last Name</label>
+            <input type="text" id="lastName" placeholder="Enter Last Name" class="form-control"/>
+            <div style="margin-top: 10px;"></div>
+
+            <!-- title slecter -->
+            <label for="title" class="m-0">Title</label>
+            <select id="title" class="form-control">
+              <option>Select Title</option>
+              <option>Mr.</option>
+              <option>Mrs.</option>
+              <option>Miss.</option>
+              <option>Ms.</option>
+              <option>Mx.</option>
+              <option>First Name</option>
+            </select>
+            
+
+            <!-- password -->
             <label for="password" class="m-0">Password</label>
             <input type="password" id="password" placeholder="Enter Password" class="form-control"/>
             <div style="margin-top: 10px;"></div>
 
+            <!-- Confirm password -->
             <label for="confirmPassword" class="m-0">Confirm Password</label>
             <input type="password" id="confirmPassword" placeholder="Confirm Password" class="form-control"/>
             <div style="margin-top: 10px;"></div>
@@ -105,5 +135,6 @@
         window.location.replace("../index.html");   
       }
     }
+
   </script>
 </html>
